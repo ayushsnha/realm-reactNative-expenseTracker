@@ -4,13 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Routes from './src/Routes';
 
-const App = () => {
-  return (
+const App = () => (
     <NavigationContainer>
-      <StatusBar animated={true} backgroundColor="#A0EDE7" />
-      <Routes />
+        <StatusBar animated backgroundColor="#A0EDE7" />
+        <Routes />
     </NavigationContainer>
-  );
-};
+);
 
 export default App;
