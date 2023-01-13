@@ -13,13 +13,16 @@ const Route2 = () => (
     </View>
 );
 
+const Icon = ({ name, color, size }:any) => (
+    <MaterialCommunityIcons name={name} color={color} size={size} />
+);
+
 const BottomTabs = () => (
     <Tab.Navigator
         initialRouteName="Feed"
         screenOptions={{
-            tabBarActiveTintColor: '#e91e63',
+            tabBarActiveTintColor: '#2F7E79',
             headerShown: false,
-            // tabBarStyle: { position: 'absolute' },
         }}
     >
         <Tab.Screen
@@ -27,20 +30,16 @@ const BottomTabs = () => (
             component={Transactions}
             options={{
                 tabBarLabel: 'Transactions',
-                tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="home" color={color} size={size} />
-                ),
+                tabBarIcon: ({ color, size }) => Icon({ name: 'home', color, size }),
             }}
         />
         <Tab.Screen
-            name="Route 2"
+            name="Graph"
             component={Route2}
             options={{
-                tabBarLabel: 'Updates',
-                tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="bell" color={color} size={size} />
-                ),
-                tabBarBadge: 3,
+                tabBarLabel: 'Graph',
+                tabBarIcon: ({ color, size }) => Icon({ name: 'chart-donut', color, size }),
+                // tabBarBadge: 3,
             }}
         />
     </Tab.Navigator>
