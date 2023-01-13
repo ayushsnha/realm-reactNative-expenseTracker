@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './Dashboard.styles';
 import { Transactions } from '../Tabs';
 
@@ -25,9 +26,9 @@ const BottomTabs = () => (
       component={Transactions}
       options={{
         tabBarLabel: 'Transactions',
-        // tabBarIcon: ({ color, size }) => (
-        //   <MaterialCommunityIcons name="home" color={color} size={size} />
-        // ),
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="home" color={color} size={size} />
+        ),
       }}
     />
     <Tab.Screen
@@ -35,9 +36,9 @@ const BottomTabs = () => (
       component={Route2}
       options={{
         tabBarLabel: 'Updates',
-        // tabBarIcon: ({ color, size }) => (
-        //   <MaterialCommunityIcons name="bell" color={color} size={size} />
-        // ),
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="bell" color={color} size={size} />
+        ),
         tabBarBadge: 3,
       }}
     />

@@ -41,10 +41,23 @@ const styles = StyleSheet.create({
     color: '#FFF',
   },
   value: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '500',
     color: '#FFF',
-    marginLeft: 16,
+    textAlign: 'right',
+  },
+  date: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  iconStyle: {
+    fontSize: 14,
+    padding: 6,
+    marginRight: 6,
+    fontWeight: '300',
+    color: '#FFF',
+    backgroundColor: '#4E918D',
+    borderRadius: 15,
   },
 });
 

@@ -1,5 +1,12 @@
 import React from 'react';
-import { ScrollView, View, Text, StatusBar } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './Transactions.styles';
 
 const Transactions = () => (
@@ -11,17 +18,27 @@ const Transactions = () => (
           <Text style={styles.balance}>Total Balance</Text>
           <Text style={styles.amount}>$5000</Text>
         </View>
-        <View>
-          <Text style={styles.balance}>January ⏬</Text>
-        </View>
+        <TouchableOpacity style={styles.date}>
+          <Text style={styles.balance}>January</Text>
+          <MaterialCommunityIcons name="chevron-down" size={20} color="#FFF" />
+        </TouchableOpacity>
       </View>
       <View style={styles.section}>
         <View>
-          <Text style={styles.label}>🔺Income</Text>
+          <View style={styles.date}>
+            <MaterialCommunityIcons name="arrow-up" style={styles.iconStyle} />
+            <Text style={styles.label}>Income</Text>
+          </View>
           <Text style={styles.value}>$6500</Text>
         </View>
         <View>
-          <Text style={styles.label}>🔻Expenses</Text>
+          <View style={styles.date}>
+            <MaterialCommunityIcons
+              name="arrow-down"
+              style={styles.iconStyle}
+            />
+            <Text style={styles.label}>Expenses</Text>
+          </View>
           <Text style={styles.value}>$1500</Text>
         </View>
       </View>
