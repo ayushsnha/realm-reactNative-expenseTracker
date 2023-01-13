@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 import { height } from '../../../helpers/globalDimesions';
 
 const styles = StyleSheet.create({
-    continer: {
-        margin: 20,
+    container: {
+        padding: 20,
     },
     listSection: {
-        marginTop: 16,
+        marginVertical: 16,
     },
     balance: {
         fontSize: 14,
