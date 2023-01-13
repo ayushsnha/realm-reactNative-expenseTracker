@@ -5,7 +5,9 @@ const styles = StyleSheet.create({
     continer: {
         margin: 20,
     },
-    scrollView: {},
+    listSection: {
+        marginTop: 16,
+    },
     balance: {
         fontSize: 14,
         fontWeight: '500',
@@ -58,6 +60,11 @@ const styles = StyleSheet.create({
         color: '#FFF',
         backgroundColor: '#4E918D',
         borderRadius: 15,
+    },
+    transactionHeader: {
+        fontSize: 16,
+        color: '#222222',
+        fontWeight: '700',
     },
 });
 

@@ -1,13 +1,44 @@
 import React from 'react';
 import {
-    ScrollView,
     View,
     Text,
     StatusBar,
     TouchableOpacity,
+    FlatList,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './Transactions.styles';
+
+// interface ItemProp {
+//     id: Number,
+//     amount: Number;
+//     category: String;
+//     date: Date;
+//     comment: String;
+// }
+
+const data = [
+    {
+        id: 1,
+        amount: 100,
+        category: 'Food',
+        date: new Date(),
+        comment: 'At KFC',
+    },
+    {
+        id: 2,
+        amount: 400,
+        category: 'Grocery',
+        date: new Date(),
+        comment: 'Relience Smart',
+    },
+];
+
+const TransactionCard = ({ item }:any) => (
+    <View>
+        <Text>{item.category}</Text>
+    </View>
+);
 
 const Transactions = () => (
     <View style={styles.continer}>
@@ -43,9 +74,13 @@ const Transactions = () => (
                 </View>
             </View>
         </View>
-        <ScrollView contentContainerStyle={styles.scrollView}>
-            <Text>Space for Cards</Text>
-        </ScrollView>
+        <View style={styles.listSection}>
+            <Text style={styles.transactionHeader}>Transactions History</Text>
+            <FlatList
+                data={data}
+                renderItem={TransactionCard}
+            />
+        </View>
     </View>
 );
 
