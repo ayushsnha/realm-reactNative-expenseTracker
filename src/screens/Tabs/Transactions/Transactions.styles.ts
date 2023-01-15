@@ -1,12 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { height } from '../../../helpers/globalDimesions';
 
 const styles = StyleSheet.create({
     container: {
         padding: 20,
+        position: 'relative',
+        flex: 1,
     },
     listSection: {
-        marginVertical: 16,
+        marginTop: 16,
     },
     balance: {
         fontSize: 14,
@@ -32,7 +34,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     section: {
-    // marginTop: 18,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -65,6 +66,21 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#222222',
         fontWeight: '700',
+    },
+    addButton: {
+        position: 'absolute',
+        left: '50%',
+        right: 0,
+        bottom: -10,
+        zIndex: 3,
+        elevation: (Platform.OS === 'android') ? 3 : 0,
+        backgroundColor: '#2F7E79',
+        height: 40,
+        width: 40,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 20,
     },
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './Dashboard.styles';
@@ -23,6 +23,7 @@ const BottomTabs = () => (
         screenOptions={{
             tabBarActiveTintColor: '#2F7E79',
             headerShown: false,
+            tabBarItemStyle: { zIndex: 1, elevation: (Platform.OS === 'android') ? 1 : 0 },
         }}
     >
         <Tab.Screen

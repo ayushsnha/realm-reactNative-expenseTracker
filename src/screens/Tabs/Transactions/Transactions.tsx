@@ -47,10 +47,92 @@ const data = [
         icon: 'file-code-outline',
         type: 'credit',
     },
+    {
+        id: 4,
+        amount: 100,
+        category: 'Food',
+        date: new Date(),
+        comment: 'At KFC',
+        icon: 'food',
+        type: 'debit',
+    },
+    {
+        id: 5,
+        amount: 400,
+        category: 'Grocery',
+        date: new Date(),
+        comment: 'Relience Smart',
+        icon: 'cart',
+        type: 'debit',
+    },
+    {
+        id: 6,
+        amount: 600,
+        category: 'Freelance',
+        date: new Date(),
+        comment: 'At & T',
+        icon: 'file-code-outline',
+        type: 'credit',
+    },
+    {
+        id: 7,
+        amount: 600,
+        category: 'Freelance',
+        date: new Date(),
+        comment: 'At & T',
+        icon: 'file-code-outline',
+        type: 'credit',
+    },
+    {
+        id: 8,
+        amount: 600,
+        category: 'Freelance',
+        date: new Date(),
+        comment: 'At & T',
+        icon: 'file-code-outline',
+        type: 'credit',
+    },
+    {
+        id: 9,
+        amount: 800,
+        category: 'Freelance',
+        date: new Date(),
+        comment: 'At & T',
+        icon: 'file-code-outline',
+        type: 'credit',
+    },
+    {
+        id: 10,
+        amount: 100,
+        category: 'Food',
+        date: new Date(),
+        comment: 'At KFC',
+        icon: 'food',
+        type: 'debit',
+    },
+    {
+        id: 11,
+        amount: 400,
+        category: 'Grocery',
+        date: new Date(),
+        comment: 'Relience Smart',
+        icon: 'cart',
+        type: 'debit',
+    },
 ];
 
 const Transactions = () => (
     <View style={styles.container}>
+        <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => console.log(2)}
+        >
+            <MaterialCommunityIcons
+                name="plus"
+                size={24}
+                color="#FFF"
+            />
+        </TouchableOpacity>
         <StatusBar animated backgroundColor="#2F7E79" />
         <View style={styles.headerWrapper}>
             <View style={styles.top}>
@@ -83,15 +165,16 @@ const Transactions = () => (
                 </View>
             </View>
         </View>
-        <View style={styles.listSection}>
+        <View style={{ ...styles.listSection, paddingBottom: 180 }}>
             <Text style={styles.transactionHeader}>Transactions History</Text>
             <FlatList
                 data={data}
                 renderItem={Card}
-                // showsVerticalScrollIndicator={false}
-                // showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
             />
         </View>
+
     </View>
 );
 
