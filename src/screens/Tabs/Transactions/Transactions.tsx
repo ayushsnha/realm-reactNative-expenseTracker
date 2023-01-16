@@ -123,16 +123,6 @@ const data = [
 
 const Transactions = () => (
     <View style={styles.container}>
-        <TouchableOpacity
-            style={styles.addButton}
-            onPress={() => console.log(2)}
-        >
-            <MaterialCommunityIcons
-                name="plus"
-                size={24}
-                color="#FFF"
-            />
-        </TouchableOpacity>
         <StatusBar animated backgroundColor="#2F7E79" />
         <View style={styles.headerWrapper}>
             <View style={styles.top}>
@@ -165,16 +155,26 @@ const Transactions = () => (
                 </View>
             </View>
         </View>
-        <View style={{ ...styles.listSection, paddingBottom: 180 }}>
+        <View style={{ ...styles.listSection }}>
             <Text style={styles.transactionHeader}>Transactions History</Text>
             <FlatList
                 data={data}
                 renderItem={Card}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ paddingBottom: 250 }}
             />
         </View>
-
+        <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => console.log(2)}
+        >
+            <MaterialCommunityIcons
+                name="plus"
+                size={26}
+                color="#FFF"
+            />
+        </TouchableOpacity>
     </View>
 );
 
