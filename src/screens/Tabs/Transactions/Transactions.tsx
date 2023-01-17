@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Card from './Card';
+import Modal from './Modal';
 
 import styles from './Transactions.styles';
 
@@ -19,7 +20,7 @@ import styles from './Transactions.styles';
 //     comment: String;
 // }
 
-const data = [
+const defaultData = [
     {
         id: 1,
         amount: 100,
@@ -121,61 +122,70 @@ const data = [
     },
 ];
 
-const Transactions = () => (
-    <View style={styles.container}>
-        <StatusBar animated backgroundColor="#2F7E79" />
-        <View style={styles.headerWrapper}>
-            <View style={styles.top}>
-                <View>
-                    <Text style={styles.balance}>Total Balance</Text>
-                    <Text style={styles.amount}>₹5000</Text>
-                </View>
-                <TouchableOpacity style={styles.date}>
-                    <Text style={styles.balance}>January</Text>
-                    <MaterialCommunityIcons name="chevron-down" size={20} color="#FFF" />
-                </TouchableOpacity>
-            </View>
-            <View style={styles.section}>
-                <View>
-                    <View style={styles.date}>
-                        <MaterialCommunityIcons name="arrow-up" style={styles.iconStyle} />
-                        <Text style={styles.label}>Income</Text>
+const Transactions = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [data, setData] = useState(defaultData);
+    return (
+        <View style={styles.container}>
+            <StatusBar animated backgroundColor="#2F7E79" />
+            <View style={styles.headerWrapper}>
+                <View style={styles.top}>
+                    <View>
+                        <Text style={styles.balance}>Total Balance</Text>
+                        <Text style={styles.amount}>₹5000</Text>
                     </View>
-                    <Text style={styles.value}>₹6500</Text>
+                    <TouchableOpacity style={styles.date}>
+                        <Text style={styles.balance}>January</Text>
+                        <MaterialCommunityIcons name="chevron-down" size={20} color="#FFF" />
+                    </TouchableOpacity>
                 </View>
-                <View>
-                    <View style={styles.date}>
-                        <MaterialCommunityIcons
-                            name="arrow-down"
-                            style={styles.iconStyle}
-                        />
-                        <Text style={styles.label}>Expenses</Text>
+                <View style={styles.section}>
+                    <View>
+                        <View style={styles.date}>
+                            <MaterialCommunityIcons name="arrow-up" style={styles.iconStyle} />
+                            <Text style={styles.label}>Income</Text>
+                        </View>
+                        <Text style={styles.value}>₹6500</Text>
                     </View>
-                    <Text style={styles.value}>₹1500</Text>
+                    <View>
+                        <View style={styles.date}>
+                            <MaterialCommunityIcons
+                                name="arrow-down"
+                                style={styles.iconStyle}
+                            />
+                            <Text style={styles.label}>Expenses</Text>
+                        </View>
+                        <Text style={styles.value}>₹1500</Text>
+                    </View>
                 </View>
             </View>
-        </View>
-        <View style={{ ...styles.listSection }}>
-            <Text style={styles.transactionHeader}>Transactions History</Text>
-            <FlatList
-                data={data}
-                renderItem={Card}
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{ paddingBottom: 250 }}
+            <View style={{ ...styles.listSection }}>
+                <Text style={styles.transactionHeader}>Transactions History</Text>
+                <FlatList
+                    data={data}
+                    renderItem={Card}
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={{ paddingBottom: 250 }}
+                />
+            </View>
+            <TouchableOpacity
+                style={styles.addButton}
+                onPress={() => setIsOpen(true)}
+            >
+                <MaterialCommunityIcons
+                    name="plus"
+                    size={26}
+                    color="#FFF"
+                />
+            </TouchableOpacity>
+            <Modal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                setData={setData}
             />
         </View>
-        <TouchableOpacity
-            style={styles.addButton}
-            onPress={() => console.log(2)}
-        >
-            <MaterialCommunityIcons
-                name="plus"
-                size={26}
-                color="#FFF"
-            />
-        </TouchableOpacity>
-    </View>
-);
+    );
+};
 
 export default Transactions;
