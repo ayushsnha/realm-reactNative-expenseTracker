@@ -5,6 +5,12 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import styles from './Dashboard.styles';
 import { Transactions } from '../Tabs';
 
+interface IconProp {
+    name: string;
+    color: string;
+    size: number;
+}
+
 const Tab = createBottomTabNavigator();
 
 const Route2 = () => (
@@ -13,7 +19,7 @@ const Route2 = () => (
     </View>
 );
 
-const Icon = ({ name, color, size }:any) => (
+const Icon = ({ name, color, size }:IconProp) => (
     <MaterialCommunityIcons name={name} color={color} size={size} />
 );
 

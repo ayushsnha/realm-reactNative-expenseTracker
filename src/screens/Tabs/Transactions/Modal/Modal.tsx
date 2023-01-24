@@ -8,9 +8,16 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { TransactionProp } from '../Transaction.prop';
 import styles from './Modal.styles';
 
-const Modal = ({ isOpen, setIsOpen, setData }:any) => {
+interface ModalProp {
+    isOpen: boolean;
+    setIsOpen: Function;
+    setData: Function;
+}
+
+const Modal = ({ isOpen, setIsOpen, setData }:ModalProp) => {
     const [amount, setAmount] = useState('');
     return (
         <NativeModal
@@ -42,7 +49,7 @@ const Modal = ({ isOpen, setIsOpen, setData }:any) => {
                     <Pressable
                         style={styles.addButtonStyle}
                         onPress={() => {
-                            setData((prev:any) => (
+                            setData((prev: TransactionProp[]) => (
                                 [
                                     {
                                         id: Date.now(),

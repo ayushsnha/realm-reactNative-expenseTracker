@@ -1,9 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { TransactionProp } from '../Transaction.prop';
 import styles from './Card.styles';
 
-const Card = ({ item }:any) => (
+interface ItemProp {
+   item: TransactionProp;
+}
+
+const Card = ({ item }:ItemProp) => (
     <View style={styles.cardWrapper}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={styles.categoryStyle}>

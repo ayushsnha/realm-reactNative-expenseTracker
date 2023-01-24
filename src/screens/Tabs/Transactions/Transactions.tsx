@@ -10,15 +10,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Card from './Card';
 import Modal from './Modal';
 
-import styles from './Transactions.styles';
+import { TransactionProp } from './Transaction.prop';
 
-// interface ItemProp {
-//     id: Number,
-//     amount: Number;
-//     category: String;
-//     date: Date;
-//     comment: String;
-// }
+import styles from './Transactions.styles';
 
 const defaultData = [
     {
@@ -124,7 +118,7 @@ const defaultData = [
 
 const Transactions = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [data, setData] = useState(defaultData);
+    const [data, setData] = useState<TransactionProp[]>(defaultData);
     return (
         <View style={styles.container}>
             <StatusBar animated backgroundColor="#2F7E79" />

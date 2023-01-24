@@ -1,3 +1,4 @@
+import { NavigationProp } from '@react-navigation/native';
 import React from 'react';
 import {
     View,
@@ -11,7 +12,11 @@ import styles from './Welcome.styles';
 const PersonImg = require('../../../assets/Images/person.png');
 const BackGroundImg = require('../../../assets/Images/background2.png');
 
-const Welcome = ({ navigation }: any) => (
+interface Props {
+    navigation: NavigationProp<Record<string, object | undefined>>;
+  }
+
+const Welcome = ({ navigation }:Props) => (
     <View style={styles.viewStyle}>
         <ImageBackground
             source={BackGroundImg}
