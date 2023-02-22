@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import Realm from 'realm';
 import {
     View,
     Text,
@@ -7,12 +8,15 @@ import {
     FlatList,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// import realm from '../../../realms';
 import Card from './Card';
 import Modal from './Modal';
 
 import { TransactionProp } from './Transaction.prop';
 
 import styles from './Transactions.styles';
+
+// console.log(Realm);
 
 const defaultData = [
     {
@@ -119,6 +123,7 @@ const defaultData = [
 const Transactions = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [data, setData] = useState<TransactionProp[]>(defaultData);
+    // console.log(realm);
     return (
         <View style={styles.container}>
             <StatusBar animated backgroundColor="#2F7E79" />
