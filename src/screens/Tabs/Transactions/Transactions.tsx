@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import Realm from 'realm';
 import {
     View,
     Text,
@@ -16,7 +15,7 @@ import { TransactionProp } from './Transaction.prop';
 
 import styles from './Transactions.styles';
 
-// console.log(Realm);
+// console.log(realm);
 
 const defaultData = [
     {
